@@ -1,0 +1,49 @@
+<!-- <div *ngIf="hero">
+    <h1>{{hero.name}}</h1>
+    <div>
+        <label for="Name" >Name: </label>
+        <input [(ngModel)]="hero.name" placeholder="Name">
+    </div>
+    <div >
+        <label for="FirstName" >FirstName: </label>
+        <input [(ngModel)] = "hero.firstName" placeholder="FirstName">
+    </div>
+    <div >
+        <label for="LastName" >LastName: </label>
+        <input [(ngModel)] = "hero.lastName" placeholder="LastName">
+    </div>
+    <div>
+        <label for="Place">Place: </label>
+        <input [(ngModel)] = "hero.place" placeholder="Place">
+    </div>
+    <div >
+        <button class="btn" (click) ="updateHero(hero)" *ngIf = "hero.id" >Save</button>
+        <button class="btn" (click) ="deleteHero(hero)" *ngIf = "hero.id" >Delete</button>
+        <button class="btn" (click) ="createHero(hero)" *ngIf = "!hero.id" >Create</button>
+    </div>
+</div> -->
+
+<div *ngIf="hero" class="bg-gray-900 min-h-screen text-gray-100 p-6">
+    <h1 class="text-3xl font-bold text-blue-400 mb-6">{{hero.name}}</h1>
+    <div class="mb-4">
+        <label for="Name" class="block text-gray-300 mb-2">Name: </label>
+        <input [(ngModel)]="hero.name" placeholder="Name" class="w-full bg-gray-800 text-gray-100 p-2 rounded border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div class="mb-4">
+        <label for="FirstName" class="block text-gray-300 mb-2">FirstName: </label>
+        <input [(ngModel)] = "hero.firstName" placeholder="FirstName" class="w-full bg-gray-800 text-gray-100 p-2 rounded border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div class="mb-4">
+        <label for="LastName" class="block text-gray-300 mb-2">LastName: </label>
+        <input [(ngModel)] = "hero.lastName" placeholder="LastName" class="w-full bg-gray-800 text-gray-100 p-2 rounded border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div class="mb-4">
+        <label for="Place" class="block text-gray-300 mb-2">Place: </label>
+        <input [(ngModel)] = "hero.place" placeholder="Place" class="w-full bg-gray-800 text-gray-100 p-2 rounded border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div class="space-x-4">
+        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition duration-300" (click) ="updateHero(hero)" *ngIf = "hero.id" >Save</button>
+        <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition duration-300" (click) ="deleteHero(hero)" *ngIf = "hero.id" >Delete</button>
+        <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition duration-300" (click) ="createHero(hero)" *ngIf = "!hero.id" >Create</button>
+    </div>
+</div>

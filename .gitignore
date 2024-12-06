@@ -1,0 +1,21 @@
+# Visual Studio
+**/bin/
+**/obj/
+**/.vs/
+**/*.suo
+**/*.user
+**/*.userosscache
+**/*.sln.docstates
+
+# Angular frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.vscode/
+
+# ASP.NET Core
+backend/appsettings.Development.json
+
+# General
+.DS_Store
+Thumbs.db

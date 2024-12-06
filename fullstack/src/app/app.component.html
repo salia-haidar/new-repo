@@ -1,0 +1,78 @@
+<!-- <div>
+    <div >
+        <h1 >{{ title }}</h1>
+    </div>
+    <div>
+        <button class="btn" (click) = "initNewHero()" >Create New Hero </button>
+    </div>
+    <div >
+        <table >
+            <thead >
+                <tr>
+                    <th >Name</th>
+                    <th >First Name</th>
+                    <th >Last Name</th>
+                    <th >Place</th>
+                    <th >Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr 
+                    *ngFor="let hiro of hiroes">
+                    <td>{{ hiro.name }}</td>
+                    <td>{{ hiro.firstName }}</td>
+                    <td>{{ hiro.lastName }}</td>
+                    <td>{{ hiro.place }}</td>
+                    <td >
+                        <button class="btn" (click) = "editHero(hiro)" >Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<app-edit-hero [hero] = "heroToEdit" ></app-edit-hero> -->
+<div class="bg-gray-900 min-h-screen text-gray-100 p-6">
+    <div class="text-center mb-6">
+        <h1 class="text-3xl font-bold text-blue-400">{{ title }}</h1>
+    </div>
+    <div class="mb-4 text-center">
+        <button 
+        class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition duration-300" 
+        (click) = "initNewHero()" >Create New Hero </button>
+    </div>
+    <div class="overflow-x-auto">
+        <table class="w-full bg-gray-800 rounded-lg shadow-md">
+            <thead class="bg-gray-700">
+                <tr>
+                    <th class="p-3 text-left text-gray-300">Name</th>
+                    <th class="p-3 text-left text-gray-300">First Name</th>
+                    <th class="p-3 text-left text-gray-300">Last Name</th>
+                    <th class="p-3 text-left text-gray-300">Place</th>
+                    <th class="p-3 text-left text-gray-300">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr 
+                    *ngFor="let hiro of hiroes" class="border-b border-gray-700 hover:bg-gray-700 transition duration-200">
+                    <td class="p-3">{{ hiro.name }}</td>
+                    <td class="p-3">{{ hiro.firstName }}</td>
+                    <td class="p-3">{{ hiro.lastName }}</td>
+                    <td class="p-3">{{ hiro.place }}</td>
+                    <td class="p-3">
+                        <button 
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition duration-300" 
+                        (click) = "editHero(hiro)" >Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="mt-6 max-w-md mx-auto">
+        <app-edit-hero 
+            [hero] = "heroToEdit" 
+            (heroesUpdated) = "updateHeroList($event)" >
+        </app-edit-hero>
+    </div>
+</div>
