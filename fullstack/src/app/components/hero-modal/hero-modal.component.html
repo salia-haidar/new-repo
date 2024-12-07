@@ -1,0 +1,53 @@
+<div *ngIf="isOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+    <div  class="bg-gray-800 rounded-lg p-6 w-96">
+        <h2 class="text-2xl font-bold text-blue-400 mb-4">
+           {{isEditing?'Edit Hero':'Create Hero'}} 
+        </h2>
+        <div class="mb-4">
+            <label class="block text-gray-300 mb-2">Name</label>
+            <input
+                [(ngModel)] = "hero.name" 
+                class="w-full bg-gray-700 text-gray-100 p-2 rounded"
+                placeholder = "Enter hero name"
+            >
+        </div>
+        <div>
+            <label class="block text-gray-300 mb-2">First Name</label>
+            <input 
+                [(ngModel)] = "hero.firstName"
+                class="w-full bg-gray-700 text-gray-100 p-2 rounded"
+                placeholder="Enter hero's First name"
+            >
+        </div>
+        <div>
+            <label class="block text-gray-300 mb-2">Last Name</label>
+            <input 
+                [(ngModel)] = "hero.lastName"
+                class="w-full bg-gray-700 text-gray-100 p-2 rounded"
+                placeholder="Enter hero's Last name"
+            >
+        </div>
+        <div>
+            <label class="block text-gray-300 mb-2">Place</label>
+            <input 
+                [(ngModel)] = "hero.location"
+                class="w-full bg-gray-700 text-gray-100 p-2 rounded"
+                placeholder="Enter hero's Location"
+            >
+        </div>
+        <div class="flex justify-end space-x-2">
+            <button 
+                (click) = "onCancel()"
+                class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded" 
+                >
+                Cancel
+            </button>
+
+            <button 
+                (click)="onSave()" 
+                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+                {{isEditing ? 'Update' : 'Create'}} 
+            </button>
+        </div>
+    </div>
+</div>

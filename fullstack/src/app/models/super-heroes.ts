@@ -3,5 +3,5 @@ export class SuperHeroes{
     name = "";
     firstName = "";
     lastName = "";
-    place = "";
+    location = "";
 }

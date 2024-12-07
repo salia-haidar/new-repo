@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditHeroComponent } from './components/edit-hero/edit-hero.component';
 import { FormsModule } from '@angular/forms';
+import { HeroModalComponent } from './components/hero-modal/hero-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditHeroComponent
+    EditHeroComponent,
+    HeroModalComponent
   ],
   imports: [
     BrowserModule,

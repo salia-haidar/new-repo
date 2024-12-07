@@ -9,34 +9,34 @@ import { SuperHeroService } from '../../services/super-hero.service';
   templateUrl: './edit-hero.component.html',
   styleUrl: './edit-hero.component.css'
 })
-export class EditHeroComponent implements OnInit {
-  @Input () hero?: SuperHeroes; 
-  @Output () heroesUpdated = new EventEmitter<SuperHeroes[]> (); 
+export class EditHeroComponent {
+  // @Input () hero?: SuperHeroes; 
+  // @Output () heroesUpdated = new EventEmitter<SuperHeroes[]> (); 
 
-  constructor(private superHeroService: SuperHeroService) {
+  // constructor(private superHeroService: SuperHeroService) {
 
-  }
-  ngOnInit(): void {
-  }
+  // }
+  // ngOnInit(): void {
+  // }
 
-  updateHero(hero:SuperHeroes){
-    this.superHeroService.updateSuperHeroes(hero)
-    .subscribe((heroes: SuperHeroes[]) => {
-      this.heroesUpdated.emit(heroes)
-    })
-  }
-  deleteHero(hero:SuperHeroes){
-    this.superHeroService
-    .deleteHero(hero)
-    .subscribe((heroes: SuperHeroes[]) => {
-      this.heroesUpdated.emit(heroes)
-    })
-  }
-  createHero(hero:SuperHeroes){
-    this.superHeroService
-    .createSuperHero(hero)
-    .subscribe((heroes: SuperHeroes[]) => {
-      this.heroesUpdated.emit(heroes)
-    })
-  }
+  // updateHero(hero:SuperHeroes){
+  //   this.superHeroService.updateSuperHeroes(hero)
+  //   .subscribe((heroes: SuperHeroes[]) => {
+  //     this.heroesUpdated.emit(heroes)
+  //   })
+  // }
+  // deleteHero(hero:SuperHeroes){
+  //   this.superHeroService
+  //   .deleteHero(hero)
+  //   .subscribe((heroes: SuperHeroes[]) => {
+  //     this.heroesUpdated.emit(heroes)
+  //   })
+  // }
+  // createHero(hero:SuperHeroes){
+  //   this.superHeroService
+  //   .createSuperHero(hero)
+  //   .subscribe((heroes: SuperHeroes[]) => {
+  //     this.heroesUpdated.emit(heroes)
+  //   })
+  // }
 }

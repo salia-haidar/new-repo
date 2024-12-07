@@ -1,11 +1,11 @@
 ﻿namespace SuperHeroAPI
 {
-    public class SuperHero
+    public class Hero
     {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-        public string Place { get; set; } = string.Empty;
+        public int id { get; set; }
+        public string name { get; set; } = string.Empty;
+        public string firstName { get; set; } = string.Empty;
+        public string lastName { get; set; } = string.Empty;
+        public string location { get; set; } = string.Empty;
     }
 }
