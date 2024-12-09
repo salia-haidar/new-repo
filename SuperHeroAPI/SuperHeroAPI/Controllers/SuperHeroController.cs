@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SuperHeroAPI.Data;
+using SuperHeroAPI.Repositories;
 
 namespace SuperHeroAPI.Controllers
 {
@@ -9,50 +10,34 @@ namespace SuperHeroAPI.Controllers
     [ApiController]
     public class SuperHeroController : ControllerBase
     {
-        public readonly DataContext _context;
-        public SuperHeroController(DataContext context)
+        public readonly IHeroRepository _heroRepository;
+        public SuperHeroController(IHeroRepository heroRepository)
         {
-            _context = context;
+            _heroRepository = heroRepository;
         }
         [HttpGet]
         public async Task<ActionResult<List<Hero>>> GetSuperHeroes()
         {
-            return Ok(await _context.Heroes.ToListAsync());
+            return Ok(await _heroRepository.GetAllAsync());
              
         }
         [HttpPost]
-        public async Task<ActionResult<List<Hero>>> CreateSuperHeroes(Hero hero)
+        public async Task<ActionResult<List<Hero>>> CreateSuperHero(Hero hero)
         {
-            _context.Heroes.Add(hero);
-            await _context.SaveChangesAsync();
-            return Ok(await _context.Heroes.ToListAsync());
+           await _heroRepository.CreateAsync(hero);
+           return Ok(_heroRepository.GetAllAsync());
         }
         [HttpPut]
         public async Task<ActionResult<List<Hero>>> UpdateSuperHeroes(Hero hero)
         {
-            var dbHero = await _context.Heroes.FindAsync(hero.id);
-            if (dbHero == null)
-                return BadRequest("Hero not found sadly :(" );
-
-            dbHero.name = hero.name;
-            dbHero.firstName = hero.firstName;
-            dbHero.lastName = hero.lastName;
-            dbHero.location = hero.location;
-
-            await _context.SaveChangesAsync();
-
-            return Ok(await _context.Heroes.ToListAsync());
+            await _heroRepository.UpdateAsync(hero);
+            return Ok(await _heroRepository.GetAllAsync());
         }
         [HttpDelete("{id}")]
         public async Task<ActionResult<List<Hero>>> DeleteSuperHero(int id)
         {
-            var dbHero = await _context.Heroes.FindAsync(id);
-            if (dbHero == null)
-                return BadRequest("Hero not found sadly :(");
-
-            _context.Heroes.Remove(dbHero);
-            await _context.SaveChangesAsync();
-            return Ok(await _context.Heroes.ToListAsync());
+            await _heroRepository.DeleteAsync(id);
+            return Ok(await _heroRepository.GetAllAsync());
         }
     }
 }

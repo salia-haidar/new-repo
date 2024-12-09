@@ -38,14 +38,14 @@
         <div class="flex justify-end space-x-2">
             <button 
                 (click) = "onCancel()"
-                class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded" 
+                class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded mt-4" 
                 >
                 Cancel
             </button>
 
             <button 
                 (click)="onSave()" 
-                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded mt-4">
                 {{isEditing ? 'Update' : 'Create'}} 
             </button>
         </div>
